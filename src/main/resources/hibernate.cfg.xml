@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+
+    <!--Las configuraciones están en: resources/hibernate.properties-->
+
+    <mapping class="com.plan111.modelo.EstadoPersonalEntrega"/>
+    <mapping class="com.plan111.modelo.PersonalEntrega"/>
+    <mapping class="com.plan111.modelo.TipoVehiculo"/>
+    <mapping class="com.plan111.modelo.Vehiculo"/>
+  </session-factory>
+</hibernate-configuration>
