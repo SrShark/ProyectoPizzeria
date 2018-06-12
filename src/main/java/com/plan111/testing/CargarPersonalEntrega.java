@@ -20,35 +20,34 @@ public class CargarPersonalEntrega {
     Calendar fecha2 = new GregorianCalendar(2020, 0, 1);
     Date fechaVencimientoCarnetCadeteFull = fecha2.getTime();
 
-    //TODO preguntar porque da error al querer guardar los objetos en la base de datos
-//    Vehiculo vehiculoCadeteFull = new Vehiculo();
-//    vehiculoCadeteFull.setMarca("Honda");
-//
-//    List<Vehiculo> listaVehiculos = new ArrayList<Vehiculo>();
-//    listaVehiculos.add(vehiculoCadeteFull);
-//
-//    EstadoPersonalEntrega estadoCadeteFull = new EstadoPersonalEntrega();
-//    estadoCadeteFull.setNombre("Disponible");
+    List<Vehiculo> listaVehiculos = new ArrayList<Vehiculo>();
+    listaVehiculos.add(new Vehiculo("Honda"));
+
+    Vehiculo vehiculoCadeteFull = new Vehiculo(null);
+    vehiculoCadeteFull.setMarca(listaVehiculos.get(0).getMarca());
+
+    EstadoPersonalEntrega estadoCadeteFull = new EstadoPersonalEntrega();
+    estadoCadeteFull.setNombre("Disponible");
 
     PersonalEntrega cadete1 = new PersonalEntrega(
         null,
         "Guido",
         "Cavallo",
-        35638764,
-        154228287,
+        99888777,
+        154154154,
         123456,
         fechaNacimientoCadeteFull,
         fechaVencimientoCarnetCadeteFull,
-        null,
-        null
+        listaVehiculos,
+        estadoCadeteFull
     );
 
     PersonalEntrega cadete2 = new PersonalEntrega(
         null,
         "Pablo",
         "Cruciani",
-        35638765,
-        154228287,
+        88777666,
+        154154154,
         123456,
         fechaNacimientoCadeteFull,
         fechaVencimientoCarnetCadeteFull,

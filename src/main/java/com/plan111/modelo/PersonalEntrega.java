@@ -64,11 +64,11 @@ public class PersonalEntrega implements Serializable {
   @Temporal(TemporalType.DATE)
   private Date fechaVencimientoCarnet;
 
-  @OneToMany
+  @OneToMany(cascade = CascadeType.ALL)
   @JoinColumn(name="vehiculo")
   private List<Vehiculo> vehiculo;
 
-  @OneToOne
+  @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name="estado_personal_entrega")
   private EstadoPersonalEntrega estadoPersonalEntrega;
 
@@ -86,9 +86,9 @@ public class PersonalEntrega implements Serializable {
     this.estadoPersonalEntrega = estadoPersonalEntrega;
   }
 
-//  public PersonalEntrega(String nombre) {
-//    this.nombre = nombre;
-//  }
+  public PersonalEntrega(String nombre) {
+    this.nombre = nombre;
+  }
 
   public String getNombre() {
     return nombre;

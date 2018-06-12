@@ -28,13 +28,17 @@ public class Vehiculo implements Serializable {
   @Column
   private String marca;
       
-  @ManyToOne
-  @JoinColumn(name="idPersonalEntrega")
+  @ManyToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name="personal_entrega")
   private PersonalEntrega personalEntrega;
 
-  @OneToOne
+  @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name="tipo_vehiculo")
   private TipoVehiculo tipoVehiculo;
+
+  public Vehiculo(String marca) {
+    this.marca = marca;
+  }
 
   public Integer getIdVehiculo() {
     return idVehiculo;
