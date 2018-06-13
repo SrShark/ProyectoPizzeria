@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Getter @Setter @NoArgsConstructor
 public class EstadoPersonalEntrega implements Serializable {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer idEstadoPersonalEntrega;
 
   @Column(name = "nombre")

@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name="personal_entrega")
 public class PersonalEntrega implements Serializable {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer idPersonalEntrega; 
   
   @Column(
@@ -64,8 +64,8 @@ public class PersonalEntrega implements Serializable {
   @Temporal(TemporalType.DATE)
   private Date fechaVencimientoCarnet;
 
-  @OneToMany(cascade = CascadeType.ALL)
-  @JoinColumn(name="vehiculo")
+  @OneToMany(mappedBy = "personalEntrega", cascade = CascadeType.ALL)
+//  @JoinColumn(name="idVehiculo")
   private List<Vehiculo> vehiculo;
 
   @OneToOne(cascade = CascadeType.ALL)

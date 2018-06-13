@@ -20,11 +20,14 @@ public class CargarPersonalEntrega {
     Calendar fecha2 = new GregorianCalendar(2020, 0, 1);
     Date fechaVencimientoCarnetCadeteFull = fecha2.getTime();
 
-    List<Vehiculo> listaVehiculos = new ArrayList<Vehiculo>();
-    listaVehiculos.add(new Vehiculo("Honda"));
-
     Vehiculo vehiculoCadeteFull = new Vehiculo(null);
-    vehiculoCadeteFull.setMarca(listaVehiculos.get(0).getMarca());
+    vehiculoCadeteFull.setMarca("Honda");
+    vehiculoCadeteFull.setModelo("Biz");
+    vehiculoCadeteFull.setPatente("asd 123");
+    vehiculoCadeteFull.setPersonalEntrega(cadete1);
+
+    List<Vehiculo> listaVehiculos = new ArrayList<Vehiculo>();
+    listaVehiculos.add(vehiculoCadeteFull));
 
     EstadoPersonalEntrega estadoCadeteFull = new EstadoPersonalEntrega();
     estadoCadeteFull.setNombre("Disponible");
@@ -42,21 +45,21 @@ public class CargarPersonalEntrega {
         estadoCadeteFull
     );
 
-    PersonalEntrega cadete2 = new PersonalEntrega(
-        null,
-        "Pablo",
-        "Cruciani",
-        88777666,
-        154154154,
-        123456,
-        fechaNacimientoCadeteFull,
-        fechaVencimientoCarnetCadeteFull,
-        null,
-        null
-    );
+//    PersonalEntrega cadete2 = new PersonalEntrega(
+//        null,
+//        "Pablo",
+//        "Cruciani",
+//        88777666,
+//        154154154,
+//        123456,
+//        fechaNacimientoCadeteFull,
+//        fechaVencimientoCarnetCadeteFull,
+//        null,
+//        null
+//    );
 
     PersonalEntregaDAO nuevoCadete = new PersonalEntregaDAO();
     nuevoCadete.registrarPersonalEntrega(cadete1);
-    nuevoCadete.registrarPersonalEntrega(cadete2);
+//    nuevoCadete.registrarPersonalEntrega(cadete2);
   }
 }

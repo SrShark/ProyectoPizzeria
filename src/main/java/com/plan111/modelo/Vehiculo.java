@@ -16,7 +16,7 @@ import javax.persistence.*;
 @Setter @Getter @NoArgsConstructor
 public class Vehiculo implements Serializable {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer idVehiculo;
 
   @Column
@@ -29,7 +29,7 @@ public class Vehiculo implements Serializable {
   private String marca;
       
   @ManyToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name="personal_entrega")
+  @JoinColumn(name="idPersonalEntrega")
   private PersonalEntrega personalEntrega;
 
   @OneToOne(cascade = CascadeType.ALL)
