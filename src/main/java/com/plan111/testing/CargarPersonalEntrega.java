@@ -44,23 +44,23 @@ public class CargarPersonalEntrega {
         estadoCadeteFull
     );
 
-    vehiculoCadeteFull.setPersonalEntrega(cadete1);
+    PersonalEntrega cadete2 = new PersonalEntrega(
+        null,
+        "Pablo",
+        "Cruciani",
+        88777666,
+        154154154,
+        123456,
+        fechaNacimientoCadeteFull,
+        fechaVencimientoCarnetCadeteFull,
+        null,
+        null
+    );
 
-//    PersonalEntrega cadete2 = new PersonalEntrega(
-//        null,
-//        "Pablo",
-//        "Cruciani",
-//        88777666,
-//        154154154,
-//        123456,
-//        fechaNacimientoCadeteFull,
-//        fechaVencimientoCarnetCadeteFull,
-//        null,
-//        null
-//    );
+    vehiculoCadeteFull.setPersonalEntrega(cadete1);
 
     PersonalEntregaDAO nuevoCadete = new PersonalEntregaDAO();
     nuevoCadete.registrarPersonalEntrega(cadete1);
-//    nuevoCadete.registrarPersonalEntrega(cadete2);
+    nuevoCadete.registrarPersonalEntrega(cadete2);
   }
 }

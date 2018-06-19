@@ -2,6 +2,7 @@ package com.plan111.modelo;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -64,8 +65,8 @@ public class PersonalEntrega implements Serializable {
   @Temporal(TemporalType.DATE)
   private Date fechaVencimientoCarnet;
 
+  // el mappedBy es para definir quien es el dueño de la relación.
   @OneToMany(mappedBy = "personalEntrega", cascade = CascadeType.ALL)
-//  @JoinColumn(name="idVehiculo")
   private List<Vehiculo> vehiculo;
 
   @OneToOne(cascade = CascadeType.ALL)

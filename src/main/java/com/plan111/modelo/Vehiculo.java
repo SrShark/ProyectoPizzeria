@@ -29,6 +29,7 @@ public class Vehiculo implements Serializable {
   private String marca;
       
   @ManyToOne(cascade = CascadeType.ALL)
+  // el JoinColum es para darle un nombre porque es una asociasión
   @JoinColumn(name="idPersonalEntrega")
   private PersonalEntrega personalEntrega;
 
