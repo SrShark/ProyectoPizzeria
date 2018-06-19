@@ -24,10 +24,9 @@ public class CargarPersonalEntrega {
     vehiculoCadeteFull.setMarca("Honda");
     vehiculoCadeteFull.setModelo("Biz");
     vehiculoCadeteFull.setPatente("asd 123");
-    vehiculoCadeteFull.setPersonalEntrega(cadete1);
 
     List<Vehiculo> listaVehiculos = new ArrayList<Vehiculo>();
-    listaVehiculos.add(vehiculoCadeteFull));
+    listaVehiculos.add(vehiculoCadeteFull);
 
     EstadoPersonalEntrega estadoCadeteFull = new EstadoPersonalEntrega();
     estadoCadeteFull.setNombre("Disponible");
@@ -44,6 +43,8 @@ public class CargarPersonalEntrega {
         listaVehiculos,
         estadoCadeteFull
     );
+
+    vehiculoCadeteFull.setPersonalEntrega(cadete1);
 
 //    PersonalEntrega cadete2 = new PersonalEntrega(
 //        null,
