@@ -19,21 +19,30 @@ public class CargarPersonalEntrega {
     HibernateUtil.openSessionAndBindToThread();
 
     Calendar fecha = new GregorianCalendar(1991, 5, 2);
-    Date fechaNacimientoCadeteFull = fecha.getTime();
+    Date fechaNacimientoCadete = fecha.getTime();
 
     Calendar fecha2 = new GregorianCalendar(2020, 0, 1);
-    Date fechaVencimientoCarnetCadeteFull = fecha2.getTime();
+    Date fechaVencimientoCarnetCadete = fecha2.getTime();
 
-    Vehiculo vehiculoCadeteFull = new Vehiculo(null);
-    vehiculoCadeteFull.setMarca("Honda");
-    vehiculoCadeteFull.setModelo("Biz");
-    vehiculoCadeteFull.setPatente("asd 123");
+    Vehiculo vehiculo1 = new Vehiculo(null);
+    vehiculo1.setMarca("Honda");
+    vehiculo1.setModelo("Biz");
+    vehiculo1.setPatente("asd 123");
+
+    Vehiculo vehiculo2 = new Vehiculo(null);
+    vehiculo2.setMarca("Yamaha");
+    vehiculo2.setModelo("FZ");
+    vehiculo2.setPatente("awd 456");
 
     List<Vehiculo> listaVehiculos = new ArrayList<Vehiculo>();
-    listaVehiculos.add(vehiculoCadeteFull);
+    listaVehiculos.add(vehiculo1);
+    listaVehiculos.add(vehiculo2);
 
     EstadoPersonalEntrega estadoCadeteFull = new EstadoPersonalEntrega();
     estadoCadeteFull.setNombre("Disponible");
+
+    EstadoPersonalEntrega estadoCadeteFull2 = new EstadoPersonalEntrega();
+    estadoCadeteFull.setNombre("No Disponible");
 
     PersonalEntrega cadete1 = new PersonalEntrega(
         null,
@@ -42,8 +51,8 @@ public class CargarPersonalEntrega {
         99888777,
         154154154,
         123456,
-        fechaNacimientoCadeteFull,
-        fechaVencimientoCarnetCadeteFull,
+        fechaNacimientoCadete,
+        fechaVencimientoCarnetCadete,
         listaVehiculos,
         estadoCadeteFull
     );
@@ -55,17 +64,19 @@ public class CargarPersonalEntrega {
         88777666,
         154154154,
         123456,
-        fechaNacimientoCadeteFull,
-        fechaVencimientoCarnetCadeteFull,
-        null,
-        null
+        fechaNacimientoCadete,
+        fechaVencimientoCarnetCadete,
+        listaVehiculos,
+        estadoCadeteFull2
     );
 
-    vehiculoCadeteFull.setPersonalEntrega(cadete1);
+    // le establezco a cada personal un vehiculo;
+    vehiculo1.setPersonalEntrega(cadete1);
+    vehiculo2.setPersonalEntrega(cadete2);
 
     PersonalEntregaDAO nuevoCadete = new PersonalEntregaDAO();
     nuevoCadete.saveOrUpdate(cadete1);
-//    nuevoCadete.registrarPersonalEntrega(cadete2);
-    nuevoCadete.buscarPorTipoVehiculo(vehiculoCadeteFull);
+    nuevoCadete.saveOrUpdate(cadete2);
+    nuevoCadete.buscarPorTipoVehiculo(vehiculo1);
   }
 }

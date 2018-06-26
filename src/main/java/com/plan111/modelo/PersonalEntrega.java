@@ -98,11 +98,4 @@ public class PersonalEntrega implements Serializable {
   public void setNombre(String nombre) {
     this.nombre = nombre;
   }
-
-  // Sobre escritura de metodos (Polimorfismo)
-  @Override
-  public String toString() {
-    String mensaje = String.format("el nombre es: %s", getNombre());
-    return mensaje;
-  }
 }

@@ -25,7 +25,8 @@ public class PersonalEntregaDAO extends GenericDAOImplHibernate<PersonalEntrega,
 
     try {
       // Esto es un query de hibernate que maneja objetos.
-      Query query = session.createQuery("SELECT pe FROM PersonalEntrega pe INNER JOIN pe.Vehiculo v WHERE v.Vehiculo.idVehiculo = :idVehiculo");
+      // con ":nombreParametro" establezco los parametos para la consulta.
+      Query query = session.createQuery("SELECT pe FROM PersonalEntrega pe INNER JOIN pe.vehiculo v WHERE v.idVehiculo = :idVehiculo");
 
       // le pasamos al parametro "?" (que se identifica con el indice 0) el id del vehiculo.
       query.setInteger("idVehiculo", vehiculo.getIdVehiculo());

@@ -19,7 +19,8 @@ public class frmPizza extends javax.swing.JFrame {
      */
     public frmPizza() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     /**
