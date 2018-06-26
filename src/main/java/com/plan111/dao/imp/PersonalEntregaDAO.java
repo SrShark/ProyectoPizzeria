@@ -1,31 +1,42 @@
 package com.plan111.dao.imp;
 
-import com.plan111.hibernate.HibernateUtil;
 import com.plan111.modelo.PersonalEntrega;
+import com.plan111.modelo.Vehiculo;
+import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Guido
  */
 
-public class PersonalEntregaDAO {
+public class PersonalEntregaDAO extends GenericDAOImplHibernate<PersonalEntrega, Integer>{
   public void registrarPersonalEntrega(PersonalEntrega cadete) {
-    Transaction transaction = null;
-    Session session = HibernateUtil.getSessionFactory().openSession();
+    // acá van metodos propios que peguen a la base de datos.
+    // El generic ya se encarga de los metodos básicos del crud.
+  }
+
+  public List buscarPorTipoVehiculo(Vehiculo vehiculo) {
+    // obtengo la sesión actual.
+    Session session = sessionFactory.getCurrentSession();
+    List listaPersonal = new ArrayList<PersonalEntrega>();
 
     try {
-      transaction = session.beginTransaction();
-      session.save(cadete);
-      session.getTransaction().commit();
-    } catch (Exception error) {
-      error.printStackTrace();
-      if (transaction != null) {
-        transaction.rollback();
-      }
-    } finally {
-      session.flush();
-      session.close();
+      // Esto es un query de hibernate que maneja objetos.
+      Query query = session.createQuery("SELECT pe FROM PersonalEntrega pe INNER JOIN pe.Vehiculo v WHERE v.Vehiculo.idVehiculo = :idVehiculo");
+
+      // le pasamos al parametro "?" (que se identifica con el indice 0) el id del vehiculo.
+      query.setInteger("idVehiculo", vehiculo.getIdVehiculo());
+
+      //asigno a la lista lo que se ejecuta en el query.
+      listaPersonal = query.list();
+
+    } catch (Exception e) {
+      throw e;
     }
+
+    return listaPersonal;
   }
 }

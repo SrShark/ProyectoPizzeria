@@ -14,7 +14,7 @@ public class HibernateUtil {
       if (sessionFactory == null) {
         Configuration configuration = new Configuration();
         configuration.configure();
-        configuration.setProperty("hibernate.current_session_context_class", "thread");
+        // utiliza las propiedades del archivo hibernate.properties
         sessionFactory = configuration.configure().buildSessionFactory();
       }
     } catch (Exception e) {

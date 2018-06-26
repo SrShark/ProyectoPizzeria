@@ -1,6 +1,8 @@
 package com.plan111.testing;
 
+import com.plan111.dao.BussinessException;
 import com.plan111.dao.imp.PersonalEntregaDAO;
+import com.plan111.hibernate.HibernateUtil;
 import com.plan111.modelo.EstadoPersonalEntrega;
 import com.plan111.modelo.PersonalEntrega;
 import com.plan111.modelo.Vehiculo;
@@ -12,7 +14,9 @@ import java.util.*;
  */
 
 public class CargarPersonalEntrega {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws BussinessException {
+    HibernateUtil.buildSessionFactory();
+    HibernateUtil.openSessionAndBindToThread();
 
     Calendar fecha = new GregorianCalendar(1991, 5, 2);
     Date fechaNacimientoCadeteFull = fecha.getTime();
@@ -60,7 +64,8 @@ public class CargarPersonalEntrega {
     vehiculoCadeteFull.setPersonalEntrega(cadete1);
 
     PersonalEntregaDAO nuevoCadete = new PersonalEntregaDAO();
-    nuevoCadete.registrarPersonalEntrega(cadete1);
-    nuevoCadete.registrarPersonalEntrega(cadete2);
+    nuevoCadete.saveOrUpdate(cadete1);
+//    nuevoCadete.registrarPersonalEntrega(cadete2);
+    nuevoCadete.buscarPorTipoVehiculo(vehiculoCadeteFull);
   }
 }

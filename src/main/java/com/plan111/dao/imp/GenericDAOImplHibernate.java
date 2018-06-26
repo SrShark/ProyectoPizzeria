@@ -4,7 +4,6 @@
  */
 package com.plan111.dao.imp;
 
-
 import com.plan111.dao.GenericDAO;
 import com.plan111.dao.BussinessMessage;
 import com.plan111.dao.BussinessException;
@@ -18,21 +17,15 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class GenericDAOImplHibernate<T, ID extends Serializable> implements GenericDAO<T, ID> {
 
-    
     SessionFactory sessionFactory;
-
     private final static Logger LOGGER = Logger.getLogger(GenericDAOImplHibernate.class.getName());
-
     public GenericDAOImplHibernate() 
     {
         sessionFactory=HibernateUtil.getSessionFactory();
     }
-
-
 
     @Override
     public T create() throws BussinessException {
