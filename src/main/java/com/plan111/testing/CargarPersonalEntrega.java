@@ -1,5 +1,6 @@
 package com.plan111.testing;
 
+import com.plan111.controlador.GestorPersonalEntrega;
 import com.plan111.dao.BussinessException;
 import com.plan111.dao.imp.PersonalEntregaDAO;
 import com.plan111.hibernate.HibernateUtil;
@@ -74,9 +75,17 @@ public class CargarPersonalEntrega {
     vehiculo1.setPersonalEntrega(cadete1);
     vehiculo2.setPersonalEntrega(cadete2);
 
+    // instancio un gestor de personal de entrega
+//    GestorPersonalEntrega gestorPersonalEntrega = new GestorPersonalEntrega(HibernateUtil.getSessionFactory());
+//
+//    gestorPersonalEntrega.registrarPersonalEntrega(cadete1);
+//    gestorPersonalEntrega.registrarPersonalEntrega(cadete2);
+//
+//    // inicializo con el metodo run la ventana de personal de entrega.
+//    gestorPersonalEntrega.run();
+
     PersonalEntregaDAO nuevoCadete = new PersonalEntregaDAO();
     nuevoCadete.saveOrUpdate(cadete1);
     nuevoCadete.saveOrUpdate(cadete2);
-    nuevoCadete.buscarPorTipoVehiculo(vehiculo1);
   }
 }

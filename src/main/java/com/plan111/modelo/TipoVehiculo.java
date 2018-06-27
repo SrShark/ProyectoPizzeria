@@ -19,6 +19,10 @@ public class TipoVehiculo implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer idTipoVehiculo;
 
-  @Column
+  @Column(
+      updatable = true,
+      nullable = false,
+      length = 50
+  )
   private String nombre;
 }

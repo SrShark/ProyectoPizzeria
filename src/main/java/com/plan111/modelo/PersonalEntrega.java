@@ -20,14 +20,14 @@ public class PersonalEntrega implements Serializable {
   
   @Column(
       updatable = true,
-      length = 25,
+      length = 50,
       nullable = false
   )
   private String nombre;
 
   @Column(
       updatable = true,
-      length = 25,
+      length = 50,
       nullable = false
   )
   private String apellido;
@@ -41,19 +41,19 @@ public class PersonalEntrega implements Serializable {
 
   @Column(
       updatable = true,
-      nullable = false
+      nullable = true
   )
   private Integer telefono;
 
   @Column(
       updatable = true,
-      nullable = false
+      nullable = true
   )
   private Integer numeroCarnet;
 
   @Column(
       updatable = true,
-      nullable = false
+      nullable = true
   )
   @Temporal(TemporalType.DATE)
   private Date fechaNacimiento;
@@ -87,8 +87,12 @@ public class PersonalEntrega implements Serializable {
     this.estadoPersonalEntrega = estadoPersonalEntrega;
   }
 
-  public PersonalEntrega(String nombre) {
-    this.nombre = nombre;
+  public Integer getIdPersonalEntrega() {
+    return idPersonalEntrega;
+  }
+
+  public void setIdPersonalEntrega(Integer idPersonalEntrega) {
+    this.idPersonalEntrega = idPersonalEntrega;
   }
 
   public String getNombre() {
@@ -97,5 +101,69 @@ public class PersonalEntrega implements Serializable {
 
   public void setNombre(String nombre) {
     this.nombre = nombre;
+  }
+
+  public String getApellido() {
+    return apellido;
+  }
+
+  public void setApellido(String apellido) {
+    this.apellido = apellido;
+  }
+
+  public Integer getDni() {
+    return dni;
+  }
+
+  public void setDni(Integer dni) {
+    this.dni = dni;
+  }
+
+  public Integer getTelefono() {
+    return telefono;
+  }
+
+  public void setTelefono(Integer telefono) {
+    this.telefono = telefono;
+  }
+
+  public Integer getNumeroCarnet() {
+    return numeroCarnet;
+  }
+
+  public void setNumeroCarnet(Integer numeroCarnet) {
+    this.numeroCarnet = numeroCarnet;
+  }
+
+  public Date getFechaNacimiento() {
+    return fechaNacimiento;
+  }
+
+  public void setFechaNacimiento(Date fechaNacimiento) {
+    this.fechaNacimiento = fechaNacimiento;
+  }
+
+  public Date getFechaVencimientoCarnet() {
+    return fechaVencimientoCarnet;
+  }
+
+  public void setFechaVencimientoCarnet(Date fechaVencimientoCarnet) {
+    this.fechaVencimientoCarnet = fechaVencimientoCarnet;
+  }
+
+  public List<Vehiculo> getVehiculo() {
+    return vehiculo;
+  }
+
+  public void setVehiculo(List<Vehiculo> vehiculo) {
+    this.vehiculo = vehiculo;
+  }
+
+  public EstadoPersonalEntrega getEstadoPersonalEntrega() {
+    return estadoPersonalEntrega;
+  }
+
+  public void setEstadoPersonalEntrega(EstadoPersonalEntrega estadoPersonalEntrega) {
+    this.estadoPersonalEntrega = estadoPersonalEntrega;
   }
 }

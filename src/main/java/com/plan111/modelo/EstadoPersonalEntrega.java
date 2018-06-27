@@ -15,10 +15,18 @@ public class EstadoPersonalEntrega implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer idEstadoPersonalEntrega;
 
-  @Column(name = "nombre")
-  private  String nombre;
+  @Column(
+      updatable = true,
+      length = 20,
+      nullable = false
+  )
+  private String nombre;
 
-  @Column(name = "descripcion")
+  @Column(
+      updatable = true,
+      length = 255,
+      nullable = true
+  )
   private  String descripcion;
 
   public Integer getIdEstadoPersonalEntrega() {

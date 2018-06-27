@@ -19,13 +19,23 @@ public class Vehiculo implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer idVehiculo;
 
-  @Column
+  @Column(
+      updatable = true,
+      nullable = false,
+      unique = true
+  )
   private String patente;
 
-  @Column
+  @Column(
+      updatable = true,
+      nullable = true
+  )
   private String modelo;
 
-  @Column
+  @Column(
+      updatable = true,
+      nullable = true
+  )
   private String marca;
       
   @ManyToOne(cascade = CascadeType.ALL)

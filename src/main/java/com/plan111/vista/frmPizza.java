@@ -5,7 +5,6 @@
  */
 package com.plan111.vista;
 
-import com.plan111.controlador.ControladorPizza;
 import javax.swing.JOptionPane;
 
 /**

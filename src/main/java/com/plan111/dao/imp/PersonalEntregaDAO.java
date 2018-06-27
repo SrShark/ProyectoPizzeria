@@ -18,7 +18,7 @@ public class PersonalEntregaDAO extends GenericDAOImplHibernate<PersonalEntrega,
     // El generic ya se encarga de los metodos básicos del crud.
   }
 
-  public List buscarPorTipoVehiculo(Vehiculo vehiculo) {
+  public List buscarPorVehiculo(Vehiculo vehiculo) {
     // obtengo la sesión actual.
     Session session = sessionFactory.getCurrentSession();
     List listaPersonal = new ArrayList<PersonalEntrega>();
